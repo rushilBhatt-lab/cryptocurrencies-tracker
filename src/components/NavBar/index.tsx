@@ -1,7 +1,7 @@
-import { FC, useState } from "react";
-import { Link } from "react-router-dom";
-import cn from "classnames";
-import "./styles.scss";
+import { FC, useState } from 'react';
+import { Link } from 'react-router-dom';
+import cn from 'classnames';
+import './styles.scss';
 
 const Navbar: FC = () => {
 	const [sticky, setSticky] = useState(false);
@@ -15,7 +15,7 @@ const Navbar: FC = () => {
 		}
 	};
 
-	window.addEventListener("scroll", handleScroll);
+	window.addEventListener('scroll', handleScroll);
 
 	//   const goTop = () => {
 	//     window.scrollTo({
@@ -30,7 +30,7 @@ const Navbar: FC = () => {
 
 	return (
 		<>
-			<nav className={cn({ sticky: "NavBar__sticky" })}>
+			<nav className={cn({ sticky: 'NavBar__sticky' })}>
 				<div className="NavBar">
 					<Link to="/">
 						<p>COINDOM</p>
@@ -57,7 +57,7 @@ const Navbar: FC = () => {
 			</nav>
 
 			{/* mobile nav */}
-			<div className={`NavBar__mobile ${mobile ? "mobile-up" : ""}`}>
+			<div className={`NavBar__mobile ${mobile ? 'mobile-up' : ''}`}>
 				<i onClick={openMobile} className="fa-solid fa-xmark NavBar__Mobile--close"></i>
 				<ul>
 					<li onClick={openMobile}>
