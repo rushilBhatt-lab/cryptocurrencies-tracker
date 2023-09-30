@@ -1,0 +1,111 @@
+.CoinInfo {
+	width: 100%;
+	height: 100vh;
+
+	@media (max-width: 1000px) {
+		height: 150vh;
+	}
+
+	&__content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		color: #f3f2f4;
+		width: 100%;
+		height: 100vh;
+		position: relative;
+
+		@media (max-width: 1000px) {
+			flex-direction: column;
+			padding-top: 33rem;
+		}
+
+		&--imgSide {
+			width: 30%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 2rem;
+
+			@media (max-width: 1000px) {
+				width: 90%;
+			}
+
+			@media (max-width: 1000px) {
+				border-bottom: 2px solid #f3f2f4;
+				border-right: none;
+				padding-bottom: 3rem;
+			}
+
+			h2 {
+				font-size: 3.3rem;
+			}
+
+			p {
+				font-size: 2rem;
+				font-weight: 500;
+			}
+
+			img {
+				width: 22rem;
+				height: 22rem;
+			}
+		}
+		&--textSide {
+			width: 70%;
+			padding: 3rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+
+			@media (max-width: 1000px) {
+				width: 100%;
+				padding: 2rem 1rem;
+			}
+
+			&--24h,
+			&--current,
+			&--symbol {
+				display: flex;
+				font-size: 2rem;
+				gap: 1rem;
+				justify-content: center;
+				white-space: nowrap;
+
+				p {
+					span {
+						color: #f3f2f4;
+						text-transform: uppercase;
+					}
+				}
+			}
+		}
+	}
+}
+
+.numb {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+
+	@media (max-width: 1000px) {
+		flex-wrap: wrap;
+		gap: 1.5rem;
+		justify-content: center;
+	}
+}
+
+.description {
+	width: 100%;
+	font-size: 2rem;
+	height: 30rem;
+	overflow-y: auto;
+	margin-top: 4rem;
+	text-align: left;
+
+	a {
+		color: rgb(14, 203, 129);
+	}
+}

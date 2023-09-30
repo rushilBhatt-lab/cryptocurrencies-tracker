@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.scss';
-
+import sortOrderIcon from '../../assets/images/SortOrder.svg';
 interface CoinData {
 	id: string;
 	name: string;
@@ -15,6 +15,7 @@ const MarketUpdate: FC = () => {
 	const [data, setData] = useState<CoinData[]>([]);
 	const [currentPage, setCurrentPage] = useState<number>(1);
 	const [apiLoad, setApiLoad] = useState<boolean>(true);
+	const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
 
 	const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${currentPage}&sparkline=false`;
 
@@ -39,6 +40,19 @@ const MarketUpdate: FC = () => {
 		fetchData();
 	}, [url]);
 
+	console.log(data);
+	const toggleSortOrder = () => {
+		setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+	};
+
+	const sortedData = [...data];
+
+	if (sortOrder === 'asc') {
+		sortedData.sort((a, b) => a.current_price - b.current_price);
+	} else {
+		sortedData.sort((a, b) => b.current_price - a.current_price);
+	}
+
 	const paginationButtons: JSX.Element[] = [];
 	for (let i = 1; i <= 5; i++) {
 		paginationButtons.push(
@@ -60,39 +74,43 @@ const MarketUpdate: FC = () => {
 	};
 
 	return (
-		<section id="market" className="MarketUpdate__section">
-			<div className="container">
-				<div className="MarketUpdate__content">
-					<h2>Market Update</h2>
-					<div className="MarketUpdate__content--coinList">
-						<div className="MarketUpdate__content--coinList--top">
-							<p>Coin</p>
-							<p>Price</p>
-							<p>24h Change</p>
-							<p>Market Cap</p>
+		<>
+			<section id="market" className="MarketUpdate__section">
+				<div className="container">
+					<div className="MarketUpdate__content">
+						<h2>Market Update</h2>
+						<div className="MarketUpdate__content--coinList">
+							<div className="MarketUpdate__content--coinList--top">
+								<p onClick={toggleSortOrder}>Coin List</p>
+								<p onClick={toggleSortOrder}>Price</p>
+								<p onClick={toggleSortOrder}>24h Change</p>
+								<p onClick={toggleSortOrder}>Market Cap</p>
+							</div>
+							<div onLoad={() => setApiLoad(false)} className="MarketUpdate__content--coinList--row">
+								{apiLoad && <span className="loader"></span>}
+								{sortedData.map((item: CoinData) => (
+									<Link onClick={scrollTop} to={`/coin/${item.id}`} className="coin-row" key={item.id}>
+										<span>
+											<img src={item.image} alt={item.name} /> {item.name}
+										</span>
+										<p>{'$ ' + item.current_price.toFixed(2)}</p>
+										<p className={item.price_change_percentage_24h! >= 0 ? 'green-text' : 'red-text'}>
+											{item.price_change_percentage_24h?.toFixed(2) + ' %'}
+										</p>
+										<p>{'$ ' + numberWithCommas(item.market_cap)}</p>
+									</Link>
+								))}
+							</div>
 						</div>
-						<div onLoad={() => setApiLoad(false)} className="MarketUpdate__content--coinList--row">
-							{apiLoad && <span className="loader"></span>}
-							{data.map((item: CoinData) => (
-								<Link onClick={scrollTop} to={`/coin/${item.id}`} className="coin-row" key={item.id}>
-									<span>
-										<img src={item.image} alt={item.name} /> {item.name}
-									</span>
-									<p>{'$ ' + item.current_price.toFixed(2)}</p>
-									<p className={'slider-coin__price ' + (item.price_change_percentage_24h! >= 0 ? 'green-text' : 'red-text')}>
-										{item.price_change_percentage_24h?.toFixed(2) + ' %'}
-									</p>
-									<p>{'$ ' + numberWithCommas(item.market_cap)}</p>
-								</Link>
-							))}
-						</div>
-					</div>
-					<div onClick={scrollMarket} className="MarketUpdate__pagination">
-						{paginationButtons}
+						{data && (
+							<div onClick={scrollMarket} className="MarketUpdate__pagination">
+								{paginationButtons}
+							</div>
+						)}
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		</>
 	);
 };
 

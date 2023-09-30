@@ -13,12 +13,13 @@ nav {
 .NavBar {
 	display: flex;
 	justify-content: space-between;
-	max-width: 120rem;
+	//max-width: 120rem;
 	margin: 0 auto;
 	font-size: 2rem;
 	padding: 3rem 2rem;
 	align-items: center;
 	color: #f3f2f4;
+	background-color: #17171a;
 
 	p {
 		font-size: 3rem;

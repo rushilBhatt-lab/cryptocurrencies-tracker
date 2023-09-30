@@ -33,7 +33,7 @@ const Navbar: FC = () => {
 			<nav className={cn({ sticky: 'NavBar__sticky' })}>
 				<div className="NavBar">
 					<Link to="/">
-						<p>COINDOM</p>
+						<p>Matrix-Crypto-Tracker</p>
 					</Link>
 					<ul className="NavBar__list">
 						<li>
@@ -50,13 +50,11 @@ const Navbar: FC = () => {
 						</li>
 					</ul>
 					<span className="NavBar__icons">
-						{/* mobile */}
 						<i onClick={openMobile} className="fa-solid fa-bars-staggered NavBar__hamburgerMenu"></i>
 					</span>
 				</div>
 			</nav>
 
-			{/* mobile nav */}
 			<div className={`NavBar__mobile ${mobile ? 'mobile-up' : ''}`}>
 				<i onClick={openMobile} className="fa-solid fa-xmark NavBar__Mobile--close"></i>
 				<ul>

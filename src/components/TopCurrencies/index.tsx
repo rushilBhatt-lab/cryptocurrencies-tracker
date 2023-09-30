@@ -1,6 +1,4 @@
 import { FC, useEffect, useState } from 'react';
-import Btc from '../../assets/images/bitcoin.png';
-import Eth from '../../assets/images/ethereum.png';
 import { Link } from 'react-router-dom';
 import { IconChevronDown } from '@tabler/icons-react';
 import './styles.scss';
@@ -72,9 +70,7 @@ const TopCurrencies: FC = () => {
 											{item.price_change_percentage_24h?.toFixed(2) + '%'}
 										</span>
 									</p>
-									{/* <p className="TopCurrencies__coinSlider--price">
-										{'$ ' + numberWithCommas(item?.current_price)}
-									</p> */}
+									<p className="TopCurrencies__coinSlider--price">{'$ ' + numberWithCommas(item?.current_price as any)}</p>
 								</Link>
 							))}
 						</div>
