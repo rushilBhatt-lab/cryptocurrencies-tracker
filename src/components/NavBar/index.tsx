@@ -42,12 +42,6 @@ const Navbar: FC = () => {
 						<li>
 							<a href="#market">Market</a>
 						</li>
-						<li>
-							<a href="#choose-us">Choose Us</a>
-						</li>
-						<li>
-							<a href="#join">Join</a>
-						</li>
 					</ul>
 					<span className="NavBar__icons">
 						<i onClick={openMobile} className="fa-solid fa-bars-staggered NavBar__hamburgerMenu"></i>

@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.scss';
 import sortOrderIcon from '../../assets/images/SortOrder.svg';
+import { isMobile } from '../../utility/util';
 interface CoinData {
 	id: string;
 	name: string;
@@ -15,7 +16,7 @@ const MarketUpdate: FC = () => {
 	const [data, setData] = useState<CoinData[]>([]);
 	const [currentPage, setCurrentPage] = useState<number>(1);
 	const [apiLoad, setApiLoad] = useState<boolean>(true);
-	const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+	const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
 
 	const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${currentPage}&sparkline=false`;
 
@@ -40,7 +41,6 @@ const MarketUpdate: FC = () => {
 		fetchData();
 	}, [url]);
 
-	console.log(data);
 	const toggleSortOrder = () => {
 		setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
 	};

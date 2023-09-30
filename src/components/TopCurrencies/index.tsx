@@ -50,17 +50,13 @@ const TopCurrencies: FC = () => {
 								<br /> <span>Crypto currencies</span>
 							</h1>
 						</div>
-						<a className="mobile-btn-hero" href="#market">
-							View Prices <IconChevronDown />
-						</a>
-
 						<div className="TopCurrencies__coinSlider">
 							{coinsLoad && <span className="loader"></span>}
 							{data.map((item: CoinData) => (
 								<Link to={`/coin/${item.id}`} key={item.id} className="TopCurrencies__coinSlider--content">
 									<img src={item.image} alt={item.name} />
 									<p className="TopCurrencies__coinSlider--name">
-										{item.name}{' '}
+										{item.name}
 										<span
 											className={
 												'TopCurrencies__coinSlider--price ' +

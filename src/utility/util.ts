@@ -1,3 +1,5 @@
+const MOBILE_BREAKPOINT = 600;
+
 export const isMobile = () => {
 	let check = false;
 	(function (a) {
@@ -12,7 +14,7 @@ export const isMobile = () => {
 			check = true;
 	})(navigator.userAgent || navigator.vendor);
 
-	// if (window.innerWidth < MOBILE_BREAKPOINT) check = true;
+	if (window.innerWidth < MOBILE_BREAKPOINT) check = true;
 
 	return check;
 };
