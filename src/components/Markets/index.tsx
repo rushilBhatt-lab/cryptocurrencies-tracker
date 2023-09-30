@@ -42,7 +42,7 @@ const MarketUpdate: FC = () => {
 	const paginationButtons: JSX.Element[] = [];
 	for (let i = 1; i <= 5; i++) {
 		paginationButtons.push(
-			<button key={i} onClick={() => setCurrentPage(i)} className={i === currentPage ? 'MarketUpdate__activePagination' : ''}>
+			<button key={i} onClick={() => setCurrentPage(i)} className={i === currentPage ? 'activePagination' : ''}>
 				{i}
 			</button>,
 		);

@@ -81,13 +81,14 @@
 			background-color: #f3f2f4;
 		}
 	}
+}
 
-	&.activePagination {
+	.activePagination {
 		background: linear-gradient(25deg, #2600fc, #ff00ea);
 		color: #f3f2f4;
 	}
 
-	&.coin-row {
+	.coin-row {
 		display: grid;
 		grid-template-columns: 16fr 25fr 25fr 25fr;
 		color: #f3f2f4;
@@ -140,4 +141,4 @@
 			}
 		}
 	}
-}
+
