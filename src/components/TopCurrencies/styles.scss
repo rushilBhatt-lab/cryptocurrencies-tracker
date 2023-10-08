@@ -4,7 +4,7 @@
 
 	&__content {
 		position: absolute;
-		top: 10%;
+		top: 4%;
 		left: 50%;
 		transform: translate(-50%, 23%);
 		width: 100%;
@@ -47,8 +47,6 @@
 			span {
 				background-clip: text;
 				-webkit-background-clip: text;
-				color: transparent;
-				background-image: linear-gradient(25deg, #2600fc, #ff00ea);
 			}
 		}
 	}

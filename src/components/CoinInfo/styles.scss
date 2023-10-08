@@ -3,7 +3,7 @@
 	height: 100vh;
 
 	@media (max-width: 1000px) {
-		height: 150vh;
+		height: 150vh !important;
 	}
 
 	&__content {

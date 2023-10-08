@@ -8,7 +8,7 @@ const Navbar: FC = () => {
 	const [mobile, setMobile] = useState(false);
 
 	const handleScroll = () => {
-		if (window.scrollY > 150) {
+		if (window.scrollY > 100) {
 			setSticky(true);
 		} else {
 			setSticky(false);
@@ -17,20 +17,13 @@ const Navbar: FC = () => {
 
 	window.addEventListener('scroll', handleScroll);
 
-	//   const goTop = () => {
-	//     window.scrollTo({
-	//       top: (0, 0),
-	//       behavior: "smooth",
-	//     });
-	//   };
-
 	const openMobile = () => {
 		setMobile(!mobile);
 	};
 
 	return (
 		<>
-			<nav className={cn({ sticky: 'NavBar__sticky' })}>
+			<nav>
 				<div className="NavBar">
 					<Link to="/">
 						<p>Matrix-Crypto-Tracker</p>
@@ -49,7 +42,7 @@ const Navbar: FC = () => {
 				</div>
 			</nav>
 
-			<div className={`NavBar__mobile ${mobile ? 'mobile-up' : ''}`}>
+			<div className={cn('NavBar__mobile', { 'mobile-up': mobile })}>
 				<i onClick={openMobile} className="fa-solid fa-xmark NavBar__Mobile--close"></i>
 				<ul>
 					<li onClick={openMobile}>

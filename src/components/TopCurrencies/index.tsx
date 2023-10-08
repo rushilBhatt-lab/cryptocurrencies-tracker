@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { IconChevronDown } from '@tabler/icons-react';
 import './styles.scss';
 
 interface CoinData {

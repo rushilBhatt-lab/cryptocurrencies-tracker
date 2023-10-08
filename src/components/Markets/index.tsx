@@ -1,8 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.scss';
-import sortOrderIcon from '../../assets/images/SortOrder.svg';
-import { isMobile } from '../../utility/util';
+
 interface CoinData {
 	id: string;
 	name: string;
