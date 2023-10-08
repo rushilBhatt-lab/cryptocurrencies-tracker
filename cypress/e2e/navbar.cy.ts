@@ -36,5 +36,4 @@ describe('Navbar Component', () => {
 		cy.get('.NavBar__hamburgerMenu').click();
 		cy.get('.NavBar__mobile a[href="#market"]').click();
 	});
-
 });
